@@ -122,3 +122,16 @@ and salarioEmpleado >= (select max(salarioEmpleado) from empleado) order by sala
 /*  having*/
 
 select deparEmpleado, count(*) from empleado group by deparEmpleado having count(*) >=5;
+
+
+
+
+/*-------------------- MODIFICACION --------------------*/
+
+/*sintaxis   update   nombreTAbla   set campol = "valor de remplazo"   where   llaveprimaria = "valor"*/
+select * from empleado;
+update empleado set nomEmpleado = "Gabriel" where idEmpleado = 1;
+
+
+/*sentencia delete  "siempre debe llevar una clausula where"*/
+/*sintaxis   delete   from   nombreTabla   where   condicion*/
