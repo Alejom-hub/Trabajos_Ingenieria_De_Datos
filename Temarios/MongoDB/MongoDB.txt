@@ -1,0 +1,24 @@
+db (Muestra la tabla que se esta usandi)
+
+use tienda (Crea o habilita la tabla que se va a usar)
+
+show db (Muestra la base de datos que se esta usando)
+
+
+db.createCollection("productos")   (Crear las colecciones, en BD relacionales tablas)
+
+show collections (muestra las colecciones)
+
+
+db.productos.insertOne({nombre: "Laptop", precio :1200000, cantidad :10}) (Inserta en un archivo json)
+
+
+
+db.productos.insertMany	([{nombre: "Mouse"},{precio:60000},{cantidad : 15}, {nombre: "Teclados"},{precio:120000},{cantidad: 15},{nombre: "USBS"},{precio: 70000},{cantidad: 5}])  (Ingresa muchos valores en la base de datos)
+
+
+db.productos.find()    (Muestra la base de datos, con las propiedades y valores creados)
+
+
+
+
