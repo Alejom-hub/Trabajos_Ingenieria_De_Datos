@@ -22,3 +22,66 @@ db.productos.find()    (Muestra la base de datos, con las propiedades y valores 
 
 
 
+
+db.createCollection( "Ventas")  
+
+db.createCollection("Productos")
+
+db.Cliente.insertMany([{id:1, Nombre: 'Maria Antonieta', Cantidad_de_Compra: 3},
+                       {id:2 , Nombre :'Karla', Cantidad_de_Compra:2},
+                       {id:3 , Nombre :'Juan Diego', Cantidad_de_Compra:1},
+                       {id:4 , Nombre :'Laura', Cantidad_de_Compra:0},
+											 {id:5 , Nombre :'Luisa', Cantidad_de_Compra:5}])
+
+db.ventas.insertMany([{Fecha_venta: new Date ('2024-01-03'), cantidad : 1, nombre_producto : 'Teclado', precio_unitario : 120000, precio_total: 120000},
+                      {Fecha_venta: new Date ('2024-02-04'), cantidad : 2, nombre_producto : 'USBS', precio_unitario : 70000, precio_total: 140000},
+                      {Fecha_venta: new Date ('2024-03-04'), cantidad : 3, nombre_producto : 'Mouse', precio_unitario : 60000, precio_total: 180000},
+                      {Fecha_venta: new Date ('2024-03-05'), cantidad : 6, nombre_producto : 'Teclado', precio_unitario : 120000, precio_total: 720000},
+                      {Fecha_venta: new Date ('2023-12-01'), cantidad : 5, nombre_producto : 'USBS', precio_unitario : 70000, precio_total: 350000}])
+
+
+db.productos.find({precio:{$eq : 70000}})
+
+db.productos.find({precio:{$gt : 80000}})
+
+db.productos.find({precio:{$gte : 120000}})
+
+db.productos.find({precio:{$lt : 100000}})
+
+db.productos.find({precio:{$lte : 60000}})
+
+db.productos.find({precio:{$ne : 60000}})
+
+db.productos.find({precio:{$in : [60000, 120000]}})
+
+db.productos.find({precio:{$nin : [60000, 120000]}})
+
+
+
+
+
+db.productos.find({$or :[{Nombre : 'Laptop'},{precio: 1200000}]})
+
+db.productos.find({$or :[{Nombre: {$gt : 'Laptop'}},{precio : {$ne: 1200000}}]})
+
+db.Productos.find( { precio: { $not: { $lt: 70000 } } } )
+
+db.Cliente.find({ $nor: [{id : 1}] } )
+
+
+
+
+
+db.Campo.find({ field: { $exists: <boolean> } }) //Funciona para encontrar valores nulos o no nulos dependiendo de lo que se requiera.
+
+db.ventas.find({precio_total:{$type : 'int'}})
+
+
+
+db.ventas.find({precio_total:{$mod : [2,0]}})
+
+//Revisar el $Regex
+
+db.Cliente.find({id:1},{Nombre : {$elemMatch : {
+Cantidad_de_Compra:2}}})
+
