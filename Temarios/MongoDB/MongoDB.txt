@@ -10,12 +10,12 @@ db.createCollection("productos")   (Crear las colecciones, en BD relacionales ta
 show collections (muestra las colecciones)
 
 
-db.productos.insertOne({nombre: "Laptop", precio :1200000, cantidad :10}) (Inserta en un archivo json)
 
+db.productos.insertOne({id_producto : 1,nombre: "Laptop", precio :1200000, cantidad :10})
 
-
-db.productos.insertMany	([{nombre: "Mouse"},{precio:60000},{cantidad : 15}, {nombre: "Teclados"},{precio:120000},{cantidad: 15},{nombre: "USBS"},{precio: 70000},{cantidad: 5}])  (Ingresa muchos valores en la base de datos)
-
+db.productos.insertMany	([{id_producto : 2,nombre: "Mouse",precio:60000,cantidad : 15}, 
+{id_producto : 3, nombre: "Teclados",precio:120000,cantidad: 15},
+{id_producto : 4, nombre: "USBS",precio: 70000,cantidad: 5}])  
 
 db.productos.find()    (Muestra la base de datos, con las propiedades y valores creados)
 
@@ -23,21 +23,22 @@ db.productos.find()    (Muestra la base de datos, con las propiedades y valores 
 
 
 
-db.createCollection( "Ventas")  
+db.createCollection( "ventas")  
 
-db.createCollection("Productos")
+db.createCollection("cliente")
 
-db.Cliente.insertMany([{id:1, Nombre: 'Maria Antonieta', Cantidad_de_Compra: 3},
-                       {id:2 , Nombre :'Karla', Cantidad_de_Compra:2},
-                       {id:3 , Nombre :'Juan Diego', Cantidad_de_Compra:1},
-                       {id:4 , Nombre :'Laura', Cantidad_de_Compra:0},
-											 {id:5 , Nombre :'Luisa', Cantidad_de_Compra:5}])
 
-db.ventas.insertMany([{Fecha_venta: new Date ('2024-01-03'), cantidad : 1, nombre_producto : 'Teclado', precio_unitario : 120000, precio_total: 120000},
-                      {Fecha_venta: new Date ('2024-02-04'), cantidad : 2, nombre_producto : 'USBS', precio_unitario : 70000, precio_total: 140000},
-                      {Fecha_venta: new Date ('2024-03-04'), cantidad : 3, nombre_producto : 'Mouse', precio_unitario : 60000, precio_total: 180000},
-                      {Fecha_venta: new Date ('2024-03-05'), cantidad : 6, nombre_producto : 'Teclado', precio_unitario : 120000, precio_total: 720000},
-                      {Fecha_venta: new Date ('2023-12-01'), cantidad : 5, nombre_producto : 'USBS', precio_unitario : 70000, precio_total: 350000}])
+db.cliente.insertMany([{id_cliente:1, Nombre: 'Maria Antonieta', Cantidad_de_Compra: 3},
+                       {id_cliente:2 , Nombre :'Karla', Cantidad_de_Compra:2},
+                       {id_cliente:3 , Nombre :'Juan Diego', Cantidad_de_Compra:1},
+                       {id_cliente:4 , Nombre :'Laura', Cantidad_de_Compra:0},
+		       {id_cliente:5 , Nombre :'Luisa', Cantidad_de_Compra:5}])
+
+db.ventas.insertMany([{id_venta: 1, id_cliente : 1, id_producto: 1, Fecha_venta: new Date ('2024-01-03'), cantidad : 1, nombre_producto : 'Teclado', precio_unitario : 120000, precio_total: 120000},
+                      {id_venta: 2,id_cliente: 2, id_producto:2, Fecha_venta: new Date ('2024-02-04'), cantidad : 2, nombre_producto : 'USBS', precio_unitario : 70000, precio_total: 140000},
+                      {id_venta: 3, id_cliente: 3, id_producto:3,Fecha_venta: new Date ('2024-03-04'), cantidad : 3, nombre_producto : 'Mouse', precio_unitario : 60000, precio_total: 180000},
+                      {id_venta: 4, id_cliente: 4, id_producto:4,Fecha_venta: new Date ('2024-03-05'), cantidad : 6, nombre_producto : 'Teclado', precio_unitario : 120000, precio_total: 720000},
+                      {id_venta: 5, id_cliente: 5, id_producto:5,Fecha_venta: new Date ('2023-12-01'), cantidad : 5, nombre_producto : 'USBS', precio_unitario : 70000, precio_total: 350000}])
 
 
 db.productos.find({precio:{$eq : 70000}})
@@ -85,3 +86,16 @@ db.ventas.find({precio_total:{$mod : [2,0]}})
 db.Cliente.find({id:1},{Nombre : {$elemMatch : {
 Cantidad_de_Compra:2}}})
 
+
+
+
+
+-- JOINS
+
+
+db.ventas.aggregate({$lookup:{
+															from:"cliente",
+															localField: "id_cliente",
+															foreignField: "id_cliente",
+															as : "Clientes"
+														 }})
