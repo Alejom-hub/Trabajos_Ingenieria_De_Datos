@@ -1,0 +1,42 @@
+use colegio
+
+db.createCollection("alumnos")
+
+db.createCollection("materia")
+
+db.createCollection("curso")
+
+db.createCollection("calificaciones")
+
+
+db.alumnos.insertMany([{id_alumno: 1,nombre:"Maria", edad: 16, correo: "maria001@gmail.com"}, 
+                      {id_alumno: 2, nombre: "Santiago" , edad: 15 , correo:"santiago02@gmail.com"},
+                      {id_alumno : 3, nombre: "Sabrina" , edad: 16 , correo: "sabrina002@gmail.com"},
+                      {id_alumno : 4, nombre: "Juan" , edad: 16 , correo:"Juannes@gmail.com"},
+                      {id_alumno : 5, nombre: "Sara" , edad: 17 , correo: "saaara@gmail.com"},
+                      {id_alumno: 6, nombre: "Alejandro" , edad: 16  , correo: "alejooo@gmail.com"},
+                      {id_alumno: 7, nombre: "Luisa" , edad: 16 , correo:"luuuissaa@gmail.com"}])
+
+
+db.materia.insertMany([{id_materia: 1 , nombre : "Matematicas", creditos: 2 },
+                       {id_materia: 2 , nombre : "Castellano", creditos: 2},
+                       {id_materia: 3 , nombre : "Programación", creditos: 2},
+                       {id_materia: 4 , nombre : "Ingles", creditos: 3 },
+                       {id_materia: 5 , nombre : "Educacion Fisica", creditos: 1},
+                       {id_materia: 6 , nombre : "Fisica", creditos: 2},
+                       {id_materia: 7 , nombre : "Frances", creditos: 3},
+                       {id_materia: 8 , nombre : "Quimica", creditos: 2},
+                       {id_materia: 9 , nombre : "Biologia", creditos: 2}])
+
+
+db.curso.insertMany([{id_curso : 1 , curso : "Decimo A"},
+                     {id_curso : 2 , curso : "Decimo B"}])
+
+
+db.calificaciones.insertMany([{id_alumno : 1, id_materia :  1,  id_curso  :  1 , calificacion  : "Sobresaliente"},
+                              {id_alumno : 2, id_materia :  6,  id_curso  :  2 , calificacion  : "Excelente"},
+                              {id_alumno : 3, id_materia :  2,  id_curso  :  1 , calificacion  : "Muy Bien"},
+                              {id_alumno : 4, id_materia :  3,  id_curso  :  2 , calificacion  : "Bajo"},
+                              {id_alumno : 5, id_materia :  5,  id_curso  :  1 , calificacion  : "Excelente"},
+                              {id_alumno : 6, id_materia :  9,  id_curso  :  2 , calificacion  : "Excelente"},
+                              {id_alumno : 7, id_materia :  8,  id_curso  :  1 , calificacion  : "Sobresaliente"}])
