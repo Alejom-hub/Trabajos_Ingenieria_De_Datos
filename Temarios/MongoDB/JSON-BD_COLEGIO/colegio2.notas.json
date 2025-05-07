@@ -1,0 +1,63 @@
+[{
+  "_id": {
+    "$oid": "681b814c8cd018945f9ac11e"
+  },
+  "id_alumno": 1,
+  "id_materia": 1,
+  "id_curso": 1,
+  "calificacion": "Sobresaliente"
+},
+{
+  "_id": {
+    "$oid": "681b814c8cd018945f9ac11f"
+  },
+  "id_alumno": 2,
+  "id_materia": 6,
+  "id_curso": 2,
+  "calificacion": "Excelente"
+},
+{
+  "_id": {
+    "$oid": "681b814c8cd018945f9ac120"
+  },
+  "id_alumno": 3,
+  "id_materia": 2,
+  "id_curso": 1,
+  "calificacion": "Muy Bien"
+},
+{
+  "_id": {
+    "$oid": "681b814c8cd018945f9ac121"
+  },
+  "id_alumno": 4,
+  "id_materia": 3,
+  "id_curso": 2,
+  "calificacion": "Bajo"
+},
+{
+  "_id": {
+    "$oid": "681b814c8cd018945f9ac122"
+  },
+  "id_alumno": 5,
+  "id_materia": 5,
+  "id_curso": 1,
+  "calificacion": "Excelente"
+},
+{
+  "_id": {
+    "$oid": "681b814c8cd018945f9ac123"
+  },
+  "id_alumno": 6,
+  "id_materia": 9,
+  "id_curso": 2,
+  "calificacion": "Excelente"
+},
+{
+  "_id": {
+    "$oid": "681b814c8cd018945f9ac124"
+  },
+  "id_alumno": 7,
+  "id_materia": 8,
+  "id_curso": 1,
+  "calificacion": "Sobresaliente"
+}]

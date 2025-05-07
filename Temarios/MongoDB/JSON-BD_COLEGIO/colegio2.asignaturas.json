@@ -1,0 +1,72 @@
+[{
+  "_id": {
+    "$oid": "681a65b18023100f56996d80"
+  },
+  "id_materia": 1,
+  "nombre": "Matematicas",
+  "creditos": 2
+},
+{
+  "_id": {
+    "$oid": "681a65b18023100f56996d81"
+  },
+  "id_materia": 2,
+  "nombre": "Castellano",
+  "creditos": 2
+},
+{
+  "_id": {
+    "$oid": "681a65b18023100f56996d82"
+  },
+  "id_materia": 3,
+  "nombre": "Programación",
+  "creditos": 2
+},
+{
+  "_id": {
+    "$oid": "681a65b18023100f56996d83"
+  },
+  "id_materia": 4,
+  "nombre": "Ingles",
+  "creditos": 3
+},
+{
+  "_id": {
+    "$oid": "681a65b18023100f56996d84"
+  },
+  "id_materia": 5,
+  "nombre": "Educacion Fisica",
+  "creditos": 1
+},
+{
+  "_id": {
+    "$oid": "681a65b18023100f56996d85"
+  },
+  "id_materia": 6,
+  "nombre": "Fisica",
+  "creditos": 2
+},
+{
+  "_id": {
+    "$oid": "681a65b18023100f56996d86"
+  },
+  "id_materia": 7,
+  "nombre": "Frances",
+  "creditos": 3
+},
+{
+  "_id": {
+    "$oid": "681a65b18023100f56996d87"
+  },
+  "id_materia": 8,
+  "nombre": "Quimica",
+  "creditos": 2
+},
+{
+  "_id": {
+    "$oid": "681a65b18023100f56996d88"
+  },
+  "id_materia": 9,
+  "nombre": "Biologia",
+  "creditos": 2
+}]

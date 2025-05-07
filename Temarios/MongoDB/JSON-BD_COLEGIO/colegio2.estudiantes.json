@@ -1,0 +1,63 @@
+[{
+  "_id": {
+    "$oid": "681a65188023100f56996d76"
+  },
+  "id_alumno": 1,
+  "nombre": "Maria",
+  "edad": 16,
+  "correo": "maria001@gmail.com"
+},
+{
+  "_id": {
+    "$oid": "681a65188023100f56996d77"
+  },
+  "id_alumno": 2,
+  "nombre": "Santiago",
+  "edad": 15,
+  "correo": "santiago01@gmail.com"
+},
+{
+  "_id": {
+    "$oid": "681a65188023100f56996d78"
+  },
+  "id_alumno": 3,
+  "nombre": "Sabrina",
+  "edad": 16,
+  "correo": "sabrina002@gmail.com"
+},
+{
+  "_id": {
+    "$oid": "681a65188023100f56996d79"
+  },
+  "id_alumno": 4,
+  "nombre": "Juan",
+  "edad": 16,
+  "correo": "Juannes@gmail.com"
+},
+{
+  "_id": {
+    "$oid": "681a65188023100f56996d7a"
+  },
+  "id_alumno": 5,
+  "nombre": "Sara",
+  "edad": 17,
+  "correo": "saaara@gmail.com"
+},
+{
+  "_id": {
+    "$oid": "681a65188023100f56996d7b"
+  },
+  "id_alumno": 6,
+  "nombre": "Alejandro",
+  "edad": 16,
+  "correo": "alejooo@gmail.com"
+},
+{
+  "_id": {
+    "$oid": "681a65188023100f56996d7c"
+  },
+  "id_alumno": 7,
+  "nombre": "Luisa",
+  "edad": 16,
+  "correo": "luuuissaa@gmail.com"
+}]
