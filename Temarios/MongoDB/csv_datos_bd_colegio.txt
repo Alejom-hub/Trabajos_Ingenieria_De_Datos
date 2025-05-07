@@ -1,0 +1,40 @@
+id_alumno,nombre,edad,correo
+1,Maria,16,maria001@gmail.com
+2,Santiago,15,santiago02@gmail.com
+3,Sabrina,16,sabrina002@gmail.com
+4,Juan,16,Juannes@gmail.com
+5,Sara,17,saaara@gmail.com
+6,Alejandro,16,alejooo@gmail.com
+7,Luisa,16,luuuissaa@gmail.com
+
+
+
+
+id_materia,nombre,creditos
+1,Matematicas,2
+2,Castellano,2
+3,Programación,2
+4,Ingles,3
+5,Educacion Fisica,1
+6,Fisica,2
+7,Frances,3
+8,Quimica,2
+9,Biologia,2
+
+
+
+
+id_curso,curso
+1,Decimo A
+2,Decimo B
+
+
+
+id_alumno,id_materia,id_curso,calificacion
+1,1,1,Sobresaliente
+2,6,2,Excelente
+3,2,1,Muy Bien
+4,3,2,Bajo
+5,5,1,Excelente
+6,9,2,Excelente
+7,8,1,Sobresaliente
