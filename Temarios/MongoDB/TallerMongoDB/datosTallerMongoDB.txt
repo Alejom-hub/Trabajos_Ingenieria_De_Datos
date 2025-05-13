@@ -1,0 +1,4 @@
+nombre,edad,correo
+Juan Pérez, 30 ,juan.perez@urosario.com
+Ana López, 25,ana.lopez@ urosario.com
+Luis Torres, 35,luis.torres@ urosario.com

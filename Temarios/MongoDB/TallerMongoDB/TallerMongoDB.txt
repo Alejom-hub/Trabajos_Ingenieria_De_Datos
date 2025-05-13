@@ -1,0 +1,32 @@
+
+CONSULTAS
+• Encuentra todos los usuarios.
+db.usuarios.find()
+
+Abriendo la interfaz grafica tenemos todos los usuarios.
+
+• Encuentra el usuario con nombre Ana López.
+
+db.usuarios.find({ nombre: "Ana López" })
+
+
+{nombre: "Ana López" }
+
+• Encuentra todos los usuarios mayores o iguales a 30 años.
+
+
+db.usuarios.find({ edad: {$gte:30}  })
+
+{ edad: {$gte:30}  }
+
+
+
+ACTUALIZAR
+
+
+
+{
+  $set: { edad: 31
+
+  },
+}
