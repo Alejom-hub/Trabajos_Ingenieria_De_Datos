@@ -23,10 +23,49 @@ db.usuarios.find({ edad: {$gte:30}  })
 
 ACTUALIZAR
 
-
+db.usuarios.updateOne(
+  { nombre: "Juan", apellido: "Pérez" },
+  { $set: { edad: 31 } }
+)
 
 {
   $set: { edad: 31
 
   },
 }
+
+
+
+Añadir campo
+
+db.usuarios.updateMany(
+  { edad: { $gte: 30 } },
+  { $set: { activo: true } }
+)
+
+
+{ "edad": { "$gte": 30 } }
+{ "$set": { "activo": true } }
+
+
+ELIMINACION
+
+db.usuarios.deleteOne(
+  { nombre: "Luis", apellido: "Torres" }
+)
+
+
+
+{ "nombre": "Luis", "apellido": "Torres" }
+
+
+
+{ "edad": { "$lt": 30 } }
+
+db.usuarios.deleteMany(
+  { edad: { $lt": 30 } }
+)
+
+
+
+
