@@ -10,17 +10,16 @@ const port=3000; /*Enviar desde un punto env. (Puerto, nombre del servidor y la 
 //Middleware
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(mcors());
 
 //Conexion Mongo
 
-mongoose.connect('mongodb://localhost:27017/miapp',{
-    useNewIrlParser:true,
-    useUnifiedTipologt:true,
+mongoose.connect('mongodb://localhost:27017/miapp',
+    {useNewUrlParser:true,
+    useUnifiedTopology:true,
 })
-
 .then(()=>console.log("MongoDB Conectado"))
-.catch(err=>console.err(err))
+.catch(err=>console.error(err));
 
 // Ruta principal
 app.use ("api/items",itemRoutes);
