@@ -22,7 +22,7 @@ await item.save();
 router.get("/", async(req,res)=>{
 
 try{
-    const item = await item.find();
+    const item = await Item.find();
     res.json(item);
 
 
@@ -36,7 +36,7 @@ try{
 router.get("/:id", async(req,res)=>{
 
 try{
-    const item = await item.findById(req.params.id);
+    const item = await Item.findById(req.params.id);
     if (!item ) return res.status(404).json({error : "Producto No Encontrado"})
     res.json(item);
 
@@ -52,7 +52,7 @@ try{
 router.put("/:id", async(req,res)=>{
 
 try{
-    const item = await item.findByIdAndUpdate(req.params.id, req.body, {new:true});
+    const item = await Item.findByIdAndUpdate(req.params.id, req.body, {new:true});
     if (!item ) return res.status(404).json({error : "Producto No Encontrado"})
     res.json(item);
 
@@ -69,7 +69,7 @@ try{
 router.delete("/:id", async(req,res)=>{
 
 try{
-    const item = await item.findByIdAndDelete(req.params.id);
+    const item = await Item.findByIdAndDelete(req.params.id);
     if (!item ) return res.status(404).json({error : "Producto No Encontrado"})
     res.json(item);
 
