@@ -1,28 +1,30 @@
 
 CONSULTAS
+--------------------------------------------------------------------------------------------------------------------
 • Encuentra todos los usuarios.
+--------------------------------------------------------------------------------------------------------------------
 db.usuarios.find()
 
 Abriendo la interfaz grafica tenemos todos los usuarios.
-
+--------------------------------------------------------------------------------------------------------------------
 • Encuentra el usuario con nombre Ana López.
-
+--------------------------------------------------------------------------------------------------------------------
 db.usuarios.find({ nombre: "Ana López" })
 
 
 {nombre: "Ana López" }
 
+--------------------------------------------------------------------------------------------------------------------
 • Encuentra todos los usuarios mayores o iguales a 30 años.
-
-
+--------------------------------------------------------------------------------------------------------------------
 db.usuarios.find({ edad: {$gte:30}  })
 
 { edad: {$gte:30}  }
 
 
-
+--------------------------------------------------------------------------------------------------------------------
 ACTUALIZAR
-
+--------------------------------------------------------------------------------------------------------------------
 db.usuarios.updateOne(
   { nombre: "Juan", apellido: "Pérez" },
   { $set: { edad: 31 } }
@@ -34,31 +36,31 @@ db.usuarios.updateOne(
   },
 }
 
-
-
+--------------------------------------------------------------------------------------------------------------------
 Añadir campo
-
+--------------------------------------------------------------------------------------------------------------------
 db.usuarios.updateMany(
   { edad: { $gte: 30 } },
   { $set: { activo: true } }
 )
 
 
-{ "edad": { "$gte": 30 } }
-{ "$set": { "activo": true } }
+{
+  $set: { "activo" : true
+  },
+}
 
-
+--------------------------------------------------------------------------------------------------------------------
 ELIMINACION
-
+--------------------------------------------------------------------------------------------------------------------
 db.usuarios.deleteOne(
   { nombre: "Luis", apellido: "Torres" }
 )
 
-
-
 { "nombre": "Luis", "apellido": "Torres" }
 
-
+--------------------------------------------------------------------------------------------------------------------
+db.usuarios.deleteOne(
 
 { "edad": { "$lt": 30 } }
 
@@ -67,5 +69,102 @@ db.usuarios.deleteMany(
 )
 
 
+{edad: {"$lt" : 30}} Esto va en la interfaz y posterior a esto se hacia el delete.
 
+
+--------------------------------------------------------------------------------------------------------------------
+Parte 2: Gestión de Productos
+--------------------------------------------------------------------------------------------------------------------
+1. Crea una nueva colección llamada productos e inserta al menos 5 productos con los
+siguientes campos:
+
+db.createCollection("productos")
+
+[{
+  "_id": {
+    "$oid": "682a7adc64ee13d0c2283970"
+  },
+  "nombre": "Televisor",
+  "precio": 150,
+  "categoria": "Electrónica"
+},
+{
+  "_id": {
+    "$oid": "682a7adc64ee13d0c2283971"
+  },
+  "nombre": "Celular",
+  "precio": 200,
+  "categoria": "Electrónica"
+},
+{
+  "_id": {
+    "$oid": "682a7adc64ee13d0c2283972"
+  },
+  "nombre": "Camiseta Roja",
+  "precio": 20,
+  "categoria": "Ropa"
+},
+{
+  "_id": {
+    "$oid": "682a7adc64ee13d0c2283973"
+  },
+  "nombre": "Camiseta Negra",
+  "precio": 20,
+  "categoria": "Ropa"
+},
+{
+  "_id": {
+    "$oid": "682a7adc64ee13d0c2283974"
+  },
+  "nombre": "Nevera",
+  "precio": 600,
+  "categoria": "Hogar"
+},
+{
+  "_id": {
+    "$oid": "682a7adc64ee13d0c2283975"
+  },
+  "nombre": "Sofa",
+  "precio": 200,
+  "categoria": "Hogar"
+}]
+
+-------------------------------------------------------------------------------------------
+CONSULTAS
+-------------------------------------------------------------------------------------------
+
+• Encuentra todos los productos con precio mayor a $100.
+
+db.productos.find({precio: {$gt : 100}})
+
+{precio: {$gt : 100}}
+
+
+• Ordena los productos por precio de manera descendente.
+db.productos.find().sort({ 'precio': -1 });
+
+-------------------------------------------------------------------------------------------
+3. Actualiza los datos:
+-------------------------------------------------------------------------------------------
+db.productos.update({$set: { "stock" : true})
+
+{
+  $set: { "stock" : true
+  },
+}
+
+-------------------------------------------------------------------------------------------
+4. Elimina Registros
+-------------------------------------------------------------------------------------------
+• Elimina todos los productos cuyo precio sea menor a $50.
+db.productos.delete({ precio: { $lt: 50 }})
+
+{precio: { $lt: 50 }}
+
+
+-------------------------------------------------------------------------------------------
+PARTE 3: AGREEGACION Y ANALISIS
+-------------------------------------------------------------------------------------------
+1. Realiza una agregación para calcular:
+• El precio promedio de los productos agrupados por categoría.
 
