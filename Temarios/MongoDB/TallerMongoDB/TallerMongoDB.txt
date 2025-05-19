@@ -6,6 +6,8 @@ CONSULTAS
 db.usuarios.find()
 
 Abriendo la interfaz grafica tenemos todos los usuarios.
+
+Consulta PostMan: http://localhost:3000/api/clientes con un GET
 --------------------------------------------------------------------------------------------------------------------
 • Encuentra el usuario con nombre Ana López.
 --------------------------------------------------------------------------------------------------------------------
@@ -14,12 +16,15 @@ db.usuarios.find({ nombre: "Ana López" })
 
 {nombre: "Ana López" }
 
+
+http://localhost:3000/api/clientes/682b5345ece5aa42b118067e
 --------------------------------------------------------------------------------------------------------------------
 • Encuentra todos los usuarios mayores o iguales a 30 años.
 --------------------------------------------------------------------------------------------------------------------
 db.usuarios.find({ edad: {$gte:30}  })
 
 { edad: {$gte:30}  }
+
 
 
 --------------------------------------------------------------------------------------------------------------------
@@ -36,6 +41,14 @@ db.usuarios.updateOne(
   },
 }
 
+
+METODO PUT
+{
+    "nombre" : "Juan Pérez",
+    "edad": 31,
+    "correo" : "luis.torres@urosario.com"
+}
+
 --------------------------------------------------------------------------------------------------------------------
 Añadir campo
 --------------------------------------------------------------------------------------------------------------------
@@ -50,6 +63,8 @@ db.usuarios.updateMany(
   },
 }
 
+SE EDITA PRINCIPALMENTE DESDE LOS MODELOS
+
 --------------------------------------------------------------------------------------------------------------------
 ELIMINACION
 --------------------------------------------------------------------------------------------------------------------
@@ -58,6 +73,8 @@ db.usuarios.deleteOne(
 )
 
 { "nombre": "Luis", "apellido": "Torres" }
+
+DELETE   http://localhost:3000/api/clientes/682b5362ece5aa42b1180680
 
 --------------------------------------------------------------------------------------------------------------------
 db.usuarios.deleteOne(
@@ -79,6 +96,32 @@ Parte 2: Gestión de Productos
 siguientes campos:
 
 db.createCollection("productos")
+
+
+const mongoose = require('mongoose');
+
+
+const productos = new mongoose.Schema({
+    nombre:{type:String, require:true},
+    precio: { type: Number, required: true },
+    categoria:{type:String,require: true}
+});
+
+module.exports=mongoose.model("productos", productos)
+
+const mongoose = require('mongoose');
+
+
+const clienteTaller = new mongoose.Schema({
+    nombre:{type:String, require:true},
+    edad: { type: Number, require: true },
+    correo: {type:String, require:true},
+    creadoEn:{type:Date,default:Date.now}
+});
+
+module.exports=mongoose.model("Cliente", clienteTaller)
+
+INSERCION DE DATOS
 
 [{
   "_id": {
@@ -129,6 +172,53 @@ db.createCollection("productos")
   "categoria": "Hogar"
 }]
 
+
+
+POSTMAN
+{
+    "nombre" : "Televisor",
+    "precio": 150,
+    "categoria": "Electronica"
+
+}
+
+
+{
+    "nombre" : "Celular",
+    "precio": 200,
+    "categoria": "Electronica"
+
+}
+
+{
+    "nombre" : "Camiseta Roja",
+    "precio": 20,
+    "categoria": "Ropa"
+
+}
+
+
+{
+    "nombre" : "Camiseta Negra",
+    "precio": 20,
+    "categoria": "Ropa"
+
+}
+
+{
+    "nombre" : "Nevera",
+    "precio": 600,
+    "categoria": "Hogar"
+
+}
+
+{
+    "nombre" : "Sofa",
+    "precio": 200,
+    "categoria": "Hogar"
+
+}
+
 -------------------------------------------------------------------------------------------
 CONSULTAS
 -------------------------------------------------------------------------------------------
@@ -153,6 +243,9 @@ db.productos.update({$set: { "stock" : true})
   },
 }
 
+
+CREAR DESDE LOS MODELOS, se cre un nuevo campo.
+
 -------------------------------------------------------------------------------------------
 4. Elimina Registros
 -------------------------------------------------------------------------------------------
@@ -160,6 +253,7 @@ db.productos.update({$set: { "stock" : true})
 db.productos.delete({ precio: { $lt: 50 }})
 
 {precio: { $lt: 50 }}
+
 
 
 -------------------------------------------------------------------------------------------
