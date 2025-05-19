@@ -1,7 +1,0 @@
-nombre,precio,categoria
-Televisor,150,Electrónica
-Celular,200,Electrónica
-Camiseta Roja,20,Ropa
-Camiseta Negra,20,Ropa
-Nevera,600,Hogar
-Sofa,200,Hogar
